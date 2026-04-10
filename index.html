@@ -1,66 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Cross Bingo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cross Bingo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <nav id="top-nav">
-        <button id="menu-btn">☰</button>
-        <input type="text" id="player-name" placeholder="Your Name" maxlength="10">
-    </nav>
 
-    <div id="settings-panel" class="hidden">
-        <h2>Settings</h2>
-        <label>🔊 Volume: <input type="range" id="vol-slider" min="0" max="100"></label>
-        <label>🎵 Music: <input type="checkbox" id="music-toggle"></label>
-        <label>📳 Vibration: <input type="checkbox" id="vib-toggle"></label>
-        <button id="close-settings">Close</button>
-    </div>
+<nav id="top-nav">
+    <button id="menu-btn">☰</button>
+    <input type="text" id="player-name" placeholder="Your Name">
+</nav>
 
-    <div id="screen-home" class="screen active">
-        <h1 class="title">Cross Bingo</h1>
-        <div class="actions">
-            <button id="btn-create" class="btn-primary">🟢 Create Room</button>
-            <div class="join-group">
-                <input type="text" id="room-code-input" placeholder="Room Code" maxlength="5">
-                <button id="btn-join" class="btn-secondary">🔵 Join Room</button>
-            </div>
-        </div>
-        <p id="home-error" class="error"></p>
-    </div>
+<div id="screen-home" class="screen active">
+    <h1>Cross Bingo</h1>
+    <button id="btn-create">Create Room</button>
 
-    <div id="screen-waiting" class="screen hidden">
-        <h1 class="title">Room Code: <span id="display-room-code"></span></h1>
-        <p>Waiting for opponent...</p>
-    </div>
+    <input id="room-code-input" placeholder="Room Code">
+    <button id="btn-join">Join Room</button>
+    <p id="error"></p>
+</div>
 
-    <div id="screen-game" class="screen hidden">
-        <div class="game-header">
-            <div class="player-info">
-                <span id="p1-name">P1</span> vs <span id="p2-name">P2</span>
-            </div>
-            <div id="game-status">Setup Phase</div>
-            <div id="timer-display">60s</div>
-            <div id="bingo-progress">_ _ _ _ _</div>
-        </div>
+<div id="screen-wait" class="screen">
+    <h2>Room: <span id="room-code"></span></h2>
+    <p>Waiting for player...</p>
+</div>
 
-        <div id="bingo-grid" class="grid">
-            </div>
+<div id="screen-game" class="screen">
+    <div id="status"></div>
+    <div id="timer"></div>
+    <div id="bingo"></div>
 
-        <div class="game-controls">
-            <button id="btn-undo" class="btn-secondary hidden">Undo Last</button>
-        </div>
-    </div>
+    <div id="grid"></div>
+    <button id="undo">Undo</button>
+</div>
 
-    <div id="screen-end" class="screen hidden">
-        <h1 id="winner-msg" class="title"></h1>
-        <button id="btn-play-again" class="btn-primary">Play Again</button>
-    </div>
+<div id="screen-end" class="screen">
+    <h1 id="result"></h1>
+    <button onclick="location.reload()">Play Again</button>
+</div>
 
-    <script type="module" src="script.js"></script>
+<script type="module" src="script.js"></script>
 </body>
 </html>
